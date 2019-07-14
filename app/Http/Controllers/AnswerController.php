@@ -18,7 +18,7 @@ class AnswerController extends BaseController
     
     public function addAnswer()
     {
-        try{
+       
             
             $value = Request::all();
         
@@ -42,7 +42,7 @@ class AnswerController extends BaseController
         
             if($validator->fails()){
             
-                return response()->json(['error'=>$validator->errors(),'status'=>'failed']);   
+                return response()->json(['error'=>$validator->errors(),'status'=>'failed'],400);   
             }
             else{
                 
@@ -52,19 +52,22 @@ class AnswerController extends BaseController
                 }
                 $results = $this->correlateResults($data);
                 $data['MBTI'] = $results;
-                $obj = new Perspective();
-                $obj->addPerspective($data);
+                
+                try{
+                    
+                    $obj = new Perspective();
+                    $obj->addPerspective($data);
+                }
+                catch(\Exception $e)
+                {
+                    return $e->getMessage();
+                }
                 
                 return response()->json(['results'=>$results]);
                 
                
             }
-        }
-        catch(\Exception $e)
-        {
-            return $e->getMessage();
-        }
-            //return '1';
+       
     }
     
     // Get results for EI

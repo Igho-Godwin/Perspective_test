@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Faker\Factory as Faker;
 
 class SubmitAnswerTest extends TestCase
 {
@@ -23,7 +24,7 @@ class SubmitAnswerTest extends TestCase
         
         $response->assertJson(['status'=>'failed']);
 
-        $response->assertStatus(200);
+        $response->assertStatus(400);
     }
     
     // Test That I can Submit Answers
@@ -31,10 +32,34 @@ class SubmitAnswerTest extends TestCase
     public function testPostSuccess()
     {
         
+        $faker =  Faker::create(); 
+        $parameters = [
+            
+                         'Question_1'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_2'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_3'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_4'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_5'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_6'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_7'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_8'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_9'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'Question_10'=>$faker->numberBetween($min = 1, $max = 7),
+            
+                         'email'=>$faker->unique()->email
+                      ];
+            
+        $response = $this->post('/api/addAnswer',$parameters);
         
-        $response = $this->post('/api/addAnswer',['Question_1'=>1,'Question_2'=>2,'Question_3'=>3,'Question_4'=>4,'Question_5'=>5,'Question_6'=>6,'Question_7'=>7,'Question_8'=>1,'Question_9'=>2,'Question_10'=>1,'email'=>'xx@gmail.com']);
-        
-
         $response->assertStatus(200);
     }
 }
