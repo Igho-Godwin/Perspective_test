@@ -17,7 +17,7 @@ class Results extends Component {
         
     }
     
-    componentDidMount(){
+       handleUrlQuery(){
         var query = new URLSearchParams(this.props.location.search);
         var result = query.get('result');
         this.setState({result:result});
@@ -52,8 +52,12 @@ class Results extends Component {
         else{
             $('.perceiving').addClass('status-bar-active');
         }
+        
     }
     
+    componentDidMount(){
+        this.handleUrlQuery();
+    }
     render () {
         return (
          

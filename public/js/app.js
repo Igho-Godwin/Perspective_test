@@ -60653,7 +60653,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66092,8 +66092,8 @@ function (_Component) {
   }
 
   _createClass(Results, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "handleUrlQuery",
+    value: function handleUrlQuery() {
       var query = new URLSearchParams(this.props.location.search);
       var result = query.get('result');
       this.setState({
@@ -66123,6 +66123,11 @@ function (_Component) {
       } else {
         $('.perceiving').addClass('status-bar-active');
       }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.handleUrlQuery();
     }
   }, {
     key: "render",
