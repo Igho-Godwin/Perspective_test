@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // This class Holds Question Templates
 
@@ -49,8 +50,15 @@ class Questions extends Component {
           
         )
     }
+    
+    
 }
 
+// Checks Prop Values
+Questions.propTypes = {
+  name: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired
+};
     
 
 export default Questions;
