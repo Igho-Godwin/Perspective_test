@@ -17,6 +17,5 @@ class App extends Component {
 
     
 
-console.log('hi');
 ReactDOM.render(<App />, document.getElementById('app'))
 

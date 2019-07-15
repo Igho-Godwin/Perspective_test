@@ -7,12 +7,13 @@ class Results extends Component {
     constructor(props) {
         super(props);
 
-        // reset login status
-
+        
         this.state = {
             result: ''
            
         };
+        
+        this.handleUrlQuery = this.handleUrlQuery.bind(this);
 
         
     }
