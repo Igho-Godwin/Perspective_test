@@ -65863,6 +65863,9 @@ function (_Component) {
 
           $('.fa-spin').addClass('hide');
           $('#error-display').html('<br>' + error_data);
+          $('html, body').animate({
+            scrollTop: $("#error-display").offset().top
+          }, 2000);
         } else {
           window.open('/Results?result=' + response.data.results, '_self');
         }
