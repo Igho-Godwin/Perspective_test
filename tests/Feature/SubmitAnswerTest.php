@@ -24,7 +24,7 @@ class SubmitAnswerTest extends TestCase
         
         $response->assertJson(['status'=>'failed']);
 
-        $response->assertStatus(400);
+        $response->assertStatus(200);
     }
     
     // Test That I can Submit Answers

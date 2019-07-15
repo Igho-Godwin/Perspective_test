@@ -42,7 +42,7 @@ class AnswerController extends BaseController
         
             if($validator->fails()){
             
-                return response()->json(['error'=>$validator->errors(),'status'=>'failed'],400);   
+                return response()->json(['error'=>$validator->errors(),'status'=>'failed']);   
             }
             else{
                 
