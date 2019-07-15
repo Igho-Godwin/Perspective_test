@@ -23,7 +23,7 @@ class Home extends Component {
         
        axios.post(url, data)
            .then(function (response) {
-              console.log(response.data);
+              //console.log(response.data);
               $('.fa-spin').removeClass('hide');
               //console.log($('.fa-spin'));
               if(response.data.error)

@@ -65810,7 +65810,7 @@ function (_Component) {
       var url = 'api/addAnswer';
       var data = new FormData(document.getElementById('qtn-form'));
       axios.post(url, data).then(function (response) {
-        console.log(response.data);
+        //console.log(response.data);
         $('.fa-spin').removeClass('hide'); //console.log($('.fa-spin'));
 
         if (response.data.error) {
